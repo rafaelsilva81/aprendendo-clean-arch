@@ -19,7 +19,7 @@ const makeSut = (url: string = faker.internet.url()): SutTypes => {
 
 describe("ListProduct", () => {
   test("should call httpclient with correct url", async () => {
-    const url = "other_url";
+    const url = faker.internet.url();
     const { sut, httpClient } = makeSut(url);
 
     // Create a mock implementation of the request method
