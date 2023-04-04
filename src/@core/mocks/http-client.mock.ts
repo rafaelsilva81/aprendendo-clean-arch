@@ -1,4 +1,4 @@
-import { HttpClient } from "../http-client";
+import { HttpClient } from "../data/protocols/http/http-client";
 
 export class HttpClientSpy implements HttpClient {
   url?: string;

@@ -1,4 +1,4 @@
-import { HttpClientSpy } from "../../../protocols/http/__tests__/http-client.mock";
+import { HttpClientSpy } from "../../../../mocks/http-client.mock";
 import { ListProduct } from "../ListProducts";
 
 describe("ListProduct", () => {
