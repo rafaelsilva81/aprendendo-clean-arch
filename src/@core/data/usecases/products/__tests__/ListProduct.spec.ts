@@ -1,5 +1,5 @@
-import { MockHttpClient } from "../../../../mocks/http-client.mock";
-import { ListProduct } from "../ListProducts";
+import { MockHttpClient } from "@app/@core/mocks/http-client.mock";
+import { ListProduct } from "@app/@core/data/usecases/products/ListProducts";
 import { faker } from "@faker-js/faker";
 
 type SutTypes = {

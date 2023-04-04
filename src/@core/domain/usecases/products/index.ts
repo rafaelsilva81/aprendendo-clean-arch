@@ -1,4 +1,4 @@
-import { ProductModel } from "../../models/ProductModel";
+import { ProductModel } from "@app/@core/domain/models/ProductModel";
 
 export interface ListProducts {
   execute: () => Promise<ProductModel[]>;

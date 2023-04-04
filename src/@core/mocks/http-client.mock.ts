@@ -3,7 +3,7 @@ import {
   HttpRequest,
   HttpResponse,
   HttpStatusCode,
-} from "../data/protocols/http/http-client";
+} from "@app/@core/data/protocols/http/http-client";
 
 export class MockHttpClient<R> implements HttpClient<R> {
   request(req: HttpRequest): Promise<HttpResponse<R>> {

@@ -1,4 +1,4 @@
-import { HttpClient } from "../../protocols/http/http-client";
+import { HttpClient } from "@app/@core/data/protocols/http/http-client";
 
 export class ListProduct {
   constructor(
