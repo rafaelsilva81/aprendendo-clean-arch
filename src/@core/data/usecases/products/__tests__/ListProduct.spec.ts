@@ -1,14 +1,14 @@
-import { HttpClientSpy } from "../../../../mocks/http-client.mock";
+import { MockHttpClient } from "../../../../mocks/http-client.mock";
 import { ListProduct } from "../ListProducts";
 import { faker } from "@faker-js/faker";
 
 type SutTypes = {
   sut: ListProduct;
-  httpClient: HttpClientSpy;
+  httpClient: MockHttpClient<any>;
 };
 
 const makeSut = (url: string = faker.internet.url()): SutTypes => {
-  const httpClient = new HttpClientSpy();
+  const httpClient = new MockHttpClient();
   const sut = new ListProduct(url, httpClient);
 
   return {
@@ -21,7 +21,13 @@ describe("ListProduct", () => {
   test("should call httpclient with correct url", async () => {
     const url = "other_url";
     const { sut, httpClient } = makeSut(url);
+
+    // Create a mock implementation of the request method
+    const requestSpy = jest.spyOn(httpClient, "request");
+
     await sut.execute();
-    expect(httpClient.url).toBe(url);
+
+    // Assert that the request method was called with the correct URL
+    expect(requestSpy).toHaveBeenCalledWith(expect.objectContaining({ url }));
   });
 });
