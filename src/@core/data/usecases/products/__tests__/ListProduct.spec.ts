@@ -1,12 +1,13 @@
 import { HttpClientSpy } from "../../../../mocks/http-client.mock";
 import { ListProduct } from "../ListProducts";
+import { faker } from "@faker-js/faker";
 
 type SutTypes = {
   sut: ListProduct;
   httpClient: HttpClientSpy;
 };
 
-const makeSut = (url: string = "any_url"): SutTypes => {
+const makeSut = (url: string = faker.internet.url()): SutTypes => {
   const httpClient = new HttpClientSpy();
   const sut = new ListProduct(url, httpClient);
 
