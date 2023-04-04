@@ -1,12 +1,16 @@
-import { HttpClient } from "../data/protocols/http/http-client";
+import {
+  HttpClient,
+  HttpRequest,
+  HttpResponse,
+  HttpStatusCode,
+} from "../data/protocols/http/http-client";
 
-export class HttpClientSpy implements HttpClient {
-  url?: string;
-  async request(data: any): Promise<any> {
-    this.url = data.url;
-    return {
-      statusCode: 200,
-      data: [],
-    };
+export class MockHttpClient<R> implements HttpClient<R> {
+  request(req: HttpRequest): Promise<HttpResponse<R>> {
+    return Promise.resolve({
+      statusCode: HttpStatusCode.ok,
+      data: {} as R,
+      message: "Mock HTTP response",
+    });
   }
 }
