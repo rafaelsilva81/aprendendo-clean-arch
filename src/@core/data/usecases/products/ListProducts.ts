@@ -1,12 +1,15 @@
-import { HttpGetClient } from "../../protocols/http/http-get-client";
+import { HttpClient } from "../../protocols/http/http-client";
 
 export class ListProduct {
   constructor(
     private readonly url: string,
-    private readonly httpClient: HttpGetClient
+    private readonly httpClient: HttpClient
   ) {}
 
   async execute() {
-    return this.httpClient.get(this.url);
+    return this.httpClient.request({
+      url: this.url,
+      method: "get",
+    });
   }
 }
